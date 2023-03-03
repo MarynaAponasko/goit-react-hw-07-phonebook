@@ -2,12 +2,12 @@ import { useState } from 'react';
 import s from '../ContactForm/ContactForm.module.css';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contacts/contacts-slice';
+import { addContact } from 'redux/operations';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const contacts = useSelector(store => store.contacts);
+  const contacts = useSelector(store => store.contacts.contacts);
   const dispatch = useDispatch();
 
   const isDublicate = name => {
